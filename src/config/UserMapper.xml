@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 编写映射文件的根标签 -->
+<mapper namespace="test">
+    <!-- 根据用户的ID查询用户的信息 -->
+    <select id="findUserById" parameterType="int" resultType="com.hsy.pojo.User">
+        select * from user where id=#{id}
+    </select>
+    <select id="findUserByNameLike" parameterType="string" resultType="com.hsy.pojo.User">
+        SELECT * FROM user WHERE NAME LIKE #{name}
+    </select>
+    <insert id="insertUser" parameterType="com.hsy.pojo.User">
+        INSERT INTO user (id,name) VALUES (#{username}, #{id})
+    </insert>
+</mapper>
