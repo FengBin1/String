@@ -8,10 +8,22 @@
     <select id="findUserById" parameterType="int" resultType="com.hsy.pojo.User">
         select * from user where id=#{id}
     </select>
+
+    <!-- 根据用户的姓名模糊查询用户的信息 -->
     <select id="findUserByNameLike" parameterType="string" resultType="com.hsy.pojo.User">
         SELECT * FROM user WHERE NAME LIKE #{name}
     </select>
+
+    <!-- 插入新用户 -->
     <insert id="insertUser" parameterType="com.hsy.pojo.User">
-        INSERT INTO user (id,name) VALUES (#{username}, #{id})
+        INSERT INTO user (id, name) VALUES (#{id}, #{name})
     </insert>
+    <!-- 更新用户信息 -->
+    <update id="updateUser" parameterType="com.hsy.pojo.User">
+        UPDATE user SET name = #{name} WHERE id = #{id}
+    </update>
+    <!-- 删除用户 -->
+    <delete id="deleteUser" parameterType="int">
+        DELETE FROM user WHERE id = #{id}
+    </delete>
 </mapper>
